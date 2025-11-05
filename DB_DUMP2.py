@@ -1,5 +1,5 @@
 """
-Streamlit app: MongoDB UAT -> Target dump & restore without dropping or deleting
+Streamlit app: MongoDB SOURCE -> Target dump & restore without dropping or deleting
 
 This version automatically maps source DB to target DB if names differ,
 and removes all code related to dropping or deleting target databases or temporary files.
@@ -51,12 +51,12 @@ def run_cmd(cmd: list, stream_log_callback=None):
 
 st.title("MongoDB SOURCE → Target: dump & restore")
 
-st.caption("Use this tool to copy a database from a source (UAT) MongoDB instance to a target instance.")
+st.caption("Use this tool to copy a database from a source (SOURCE) MongoDB instance to a target instance.")
 
 st.subheader("Connections")
 col1, col2 = st.columns(2)
 with col1:
-    source_uri = st.text_input("Source MongoDB URI (UAT)", placeholder="mongodb+srv://user:pass@cluster/test")
+    source_uri = st.text_input("Source MongoDB URI (SOURCE)", placeholder="mongodb+srv://user:pass@cluster/test")
 with col2:
     target_uri = st.text_input("Target MongoDB URI", placeholder="mongodb://user:pass@host:port")
 
