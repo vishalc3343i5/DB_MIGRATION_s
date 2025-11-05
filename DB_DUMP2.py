@@ -14,7 +14,7 @@ import time
 from pymongo import MongoClient
 from pymongo.errors import ServerSelectionTimeoutError, OperationFailure
 
-st.set_page_config(page_title="Mongo copy (UAT -> Target)", page_icon="📦")
+st.set_page_config(page_title="Mongo copy (SOURCE -> Target)", page_icon="📦")
 
 def verify_connection(uri: str, timeout_ms: int = 5000):
     try:
@@ -49,7 +49,7 @@ def run_cmd(cmd: list, stream_log_callback=None):
         raise RuntimeError(f"Command failed (exit {retcode}). Last lines:\n" + ''.join(output_lines[-20:]))
     return ''.join(output_lines)
 
-st.title("MongoDB UAT → Target: dump & restore")
+st.title("MongoDB SOURCE → Target: dump & restore")
 
 st.caption("Use this tool to copy a database from a source (UAT) MongoDB instance to a target instance.")
 
